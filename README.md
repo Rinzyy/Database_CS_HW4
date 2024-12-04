@@ -16,11 +16,48 @@ Our web app project is designed for efficient management of a cell phone company
 
 ## Quick Start
 
-```bash
-# Install dependencies
-npm install
+### 1. Create Database and User
+Connect to PostgreSQL using your system username:
 
-# Start the server
+```bash
+psql postgres
+```
+
+Now, create the database and user:
+
+```sql
+CREATE DATABASE cellphone;
+CREATE USER team19 WITH PASSWORD '1234';
+GRANT ALL PRIVILEGES ON DATABASE cellphone TO team19;
+\q
+```
+
+### 2. Connect to the Database
+In Terminal, run the following command:
+
+```bash
+psql -U team19 cellphone
+```
+When prompted, enter the password: `1234`
+
+### 3. Exit psql
+To exit the psql interface, run:
+
+```bash
+\q
+```
+
+### 4. Install Dependencies
+To install the necessary dependencies, run:
+
+```bash
+npm install
+```
+
+### 5. Run the Server
+Finally, start the server with the command:
+
+```bash
 node server.js
 ```
 
